@@ -1,0 +1,42 @@
+.table {
+    width: 87%;
+    margin-top: 10px;
+}
+
+table.table td a.add {
+    color: #24aee4;
+}
+table.table td a.edit {
+    color: green;
+    margin: 5px;
+}
+table.table td a.delete {
+    color:  red;
+    margin: 5px;
+}
+table.table td a.view {
+    color: #24aee4;
+    margin: 5px;
+}
+.table-title .btn-group {
+	float: right;
+}
+.modal-header {
+    background: #fff;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-bottom: none;
+   padding-right: 11px;
+    padding-top: 5px;
+    border-bottom: 0px solid white;
+    min-height: 16.428571429px;
+}
+.modal-footer {
+    margin-bottom: 0px;
+    text-align: right;
+    border-top: 0px solid #fff;
+    padding-bottom: 10px;
+}
+table .btn{
+    margin: 2px;
+  }

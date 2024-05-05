@@ -1,0 +1,19 @@
+.wrapper {
+    display: inline-block;
+    margin-top: 0px;
+    padding: 76px;
+    width: 117%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 50px;
+}
+
+td,th {
+    border: 2px solid #dddddd;
+    text-align: left;
+    padding: 20px;
+}

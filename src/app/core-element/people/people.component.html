@@ -1,0 +1,238 @@
+<app-user-sidebar></app-user-sidebar>
+<section id="main-content">
+  <section>
+      <div class="container">
+        <div class="table-title">
+          <div class="row">
+            <div class="container">
+              <h2>Clavrit <b>people</b></h2>
+            </div>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+            <p style="float: right;">
+
+              <a href="#addEmployeeModal" style="background-color:#24aee4; float: right;margin-inline-end: 165px;margin-top: 36px;" class="btn btn-success float-end" data-toggle="modal" data-backdrop="false"
+                data-target="#regModal"><i class="material-icons"></i> <span >Add New Employee</span></a>
+            </p>
+
+          </div>
+        </div>
+      <div class="scroll-container" style="overflow: auto">
+        <table class="table table-bordered table-striped">
+          <thead style="background-color:  #24aee4;">
+            <tr style="color: white;">
+              <!-- <th>Emp Id</th> -->
+              <th>Name</th>
+              <th>Joinig Date</th>
+              <th>Status</th>
+              <th>Job Title</th>
+              <th>Department</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let empProfile of this.globalService.empProfiles">
+              <!-- <td><span>{{empProfile.empMasterDetails!.id}}</span></td> -->
+              <td><span>{{empProfile.empPersonalDetails!.name}}</span></td>
+              <td><span>{{empProfile.empHrmsDetails!.doj | date}}</span></td>
+              <td><span>{{empProfile.empMasterDetails!.active}}</span></td>
+              <td><span>{{empProfile.empMasterDetails!.role}}</span></td>
+              <td><span>{{empProfile.empHrmsDetails!.department}}</span></td>
+              <td><span>{{empProfile.empHrmsDetails!.email}}</span></td>
+              <td><span>{{empProfile.empPersonalDetails!.address}}</span></td>
+              <td>
+                <!-- <a href="#" class="view" title="View" data-toggle="modal" data-backdrop="false" data-target="#viewmodal">
+                  <i class="material-icons"(click)="openDetails(empProfile.empMasterDetails!.id)">&#xE417;</i></a> -->
+                  <a href="#" class="view" title="View" data-toggle="modal" data-target="#viewmodal">
+                    <i class="material-icons"(click)="openDetails(empProfile.empMasterDetails!.id)">&#xE417;</i>
+                  </a>
+                  <a href="#" class="edit" title="Edit" data-toggle="modal" data-target="#editmodal">
+                    <i class="material-icons" (click)="updateDetails(empProfile.empMasterDetails!.id)">&#xE254;</i>
+                  </a>
+                <a style="cursor:pointer;" class="delete" title="Delete" data-toggle="tooltip" (click)="deletePeople(empProfile.empMasterDetails!.id)">
+                  <i class="material-icons">&#xE872;</i></a>
+                  
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </section>
+  </section>
+
+  <div id="regModal" class="modal">
+    <app-employeeprofile-modal></app-employeeprofile-modal>
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <div class="input-group">
+            <input id="name" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <div class="input-group">
+            <input id="surname" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="joining_date">Joinig Date</label>
+          <div class="input-group">
+            <input id="joining_date" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="emp_status">Employment Status</label>
+          <div class="input-group">
+            <input id="emp_status" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="job_title">Job Title</label>
+          <div class="input-group">
+            <input id="job_title" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="department">Department</label>
+          <div class="input-group">
+            <input id="department" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-group">
+            <input id="email" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <div class="input-group">
+            <input id="address" class="form-control" >
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+
+<!-- View Modal -->
+  <div class="modal fade" id="viewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- <tr *ngIf="let empProfile of this.globalService.empProfiles">
+            <td><span>{{empProfile.empPersonalDetails!.name}}</span></td>
+          </tr> -->
+          <tr>
+            <td>
+            </td>
+          </tr>
+          <!-- <tr >
+            <td style="background-color:#24aee4;color: white;"><b>Employe Name</b></td>
+            <td>{{empProfileDto.empPersonalDetails!.name}}</td>
+          </tr> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="col-sm-6">
+          <h4><b>Update Employee Details</b></h4>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     
+        <hr>
+        <div class="form-group">
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <label class="labels">Name</label>
+              <input type="text" [(ngModel)]="ePersonalDetails.name" id="name" name="name"
+                class="form-control" placeholder="Enter Name">
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Job Title</label>
+              <input type="text" [(ngModel)]="ePersonalDetails.surname" id="surname"
+                name="surname" class="form-control" placeholder="Enter Surname" />
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Department</label>
+              <input type="text" class="form-control"
+                [(ngModel)]="ePersonalDetails.gender" id="gender" name="gender"
+                placeholder="Enter Gender" />
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Status</label>
+              <select [(ngModel)]="eMasterDetails.active"  class="form-control" name="role" id="role" >
+                <option style="color: black;" value="yes">YES</option>
+                <option  style="color: black;"value="no">NO</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <label class="labels">Address</label>
+                <input type="text" background-color="white;" color="black;"
+                  class="form-control" placeholder="Enter Address"
+                  [(ngModel)]="ePersonalDetails.address" id="address"
+                  name="address" />
+              </div>
+              <div class="col-md-12">
+                <label class="labels">Other Field 1</label>
+                <input type="text" class="form-control"
+                  placeholder="Enter Other Field 1"
+                  [(ngModel)]="ePersonalDetails.other_field_1" id="otherfield1"
+                  name="otherfield1" />
+              </div>
+              <div class="col-md-12">
+                <label class="labels">Other Field 2</label>
+                <input type="text" class="form-control"
+                  placeholder="Enter Other Field 2"
+                  [(ngModel)]="ePersonalDetails.other_field_2" id="otherfield2"
+                  name="otherfield2" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

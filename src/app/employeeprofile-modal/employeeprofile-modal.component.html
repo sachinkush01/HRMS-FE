@@ -1,0 +1,205 @@
+<div class="modal-dialog" [hidden]="isModalShow">
+	<!-- Modal content-->
+	<div class="modal-content">
+		<!-- <div class="modal-header"></div> -->
+		<div class="modal-body">
+			<div class="row gutters-sm">
+				<div class="col-md-8">
+					<div class="card">
+						<div class="card-header border-bottom mb-3 d-flex d-md-none">
+							<ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+								<li class="nav-item">
+									<a href="#profile" data-toggle="tab" title="profile"
+										class="nav-link has-icon active">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+											stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+											<circle cx="12" cy="7" r="4" />
+										</svg>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#employeemaster" data-toggle="tab" title="Employee Master" class="nav-link has-icon ">
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+											fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
+											<path
+												d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+											<path
+												d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+										</svg>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#employeeHRMS" data-toggle="tab" title="Employee HRMS" class="nav-link has-icon">
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+											fill="currentColor" class="bi bi-binoculars-fill" viewBox="0 0 16 16">
+											<path
+												d="M4.5 1A1.5 1.5 0 0 0 3 2.5V3h4v-.5A1.5 1.5 0 0 0 5.5 1h-1zM7 4v1h2V4h4v.882a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V13H9v-1.5a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5V13H1V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V4h4zM1 14v.5A1.5 1.5 0 0 0 2.5 16h3A1.5 1.5 0 0 0 7 14.5V14H1zm8 0v.5a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5V14H9zm4-11H9v-.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5V3z" />
+										</svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="card-body tab-content">
+							<div class="tab-pane active" id="profile">
+								<h6>YOUR PERSONAL INFORMATION</h6>
+								<hr>
+								<div class="form-group">
+									<div class="row mt-2">
+										<div class="col-md-6">
+											<label class="labels">Name</label>
+											<input type="text" [(ngModel)]="ePersonalDetails.name" id="name" name="name"
+												class="form-control" placeholder="Enter Name">
+										</div>
+										<div class="col-md-6">
+											<label class="labels">Surname</label>
+											<input type="text" [(ngModel)]="ePersonalDetails.surname" id="surname"
+												name="surname" class="form-control" placeholder="Enter Surname" />
+										</div>
+										<div class="col-md-6">
+											<label class="labels">Gender</label>
+											<input type="text" class="form-control"
+												[(ngModel)]="ePersonalDetails.gender" id="gender" name="gender"
+												placeholder="Enter Gender" />
+										</div>
+										<div class="col-md-6">
+											<label class="labels">Age</label>
+											<input type="number" min="18" max="55" class="form-control"
+												required="true"
+												[(ngModel)]="ePersonalDetails.age" id="age" name="age"
+												placeholder="Enter age" />
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row mt-3">
+											<div class="col-md-12">
+												<label class="labels">Address</label>
+												<input type="text" background-color="white;" color="black;"
+													class="form-control" placeholder="Enter Address"
+													[(ngModel)]="ePersonalDetails.address" id="address"
+													name="address" />
+											</div>
+											<div class="col-md-12">
+												<label class="labels">Other Field 1</label>
+												<input type="text" class="form-control"
+													placeholder="Enter Other Field 1"
+													[(ngModel)]="ePersonalDetails.other_field_1" id="otherfield1"
+													name="otherfield1" />
+											</div>
+											<div class="col-md-12">
+												<label class="labels">Other Field 2</label>
+												<input type="text" class="form-control"
+													placeholder="Enter Other Field 2"
+													[(ngModel)]="ePersonalDetails.other_field_2" id="otherfield2"
+													name="otherfield2" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="mt-5 text-center" style="float: right;">
+									<a href="#employeemaster" data-toggle="tab" class="btn btn-info float-end">Next</a>
+									<span style="padding:10px"></span>
+									<button type="button" class="btn btn-default float-end"
+										data-dismiss="modal">Cancel</button>
+								</div>
+
+							</div>
+						
+							<div class="tab-pane" id="employeemaster">
+								<h6>EMPLOYEE MASTER</h6>
+								<hr>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="labels">Job Role</label>
+										<select class="select-custom" name="role" id="role" placeholder="Enter Job role"
+											[(ngModel)]="eMasterDetails.role">
+											<option value="role1">Role 1</option>
+											<option value="role2">Role 2</option>
+											<option value="role3">Role 3</option>
+										</select>
+										<br>
+									</div>
+									<div class="col-md-12">
+										<label class="labels">Active</label>
+										<br>
+										<select class="select-custom" [(ngModel)]="eMasterDetails.active" name="active"
+											id="active">
+											<option value="y" style="font-weight: bold;">YES</option>
+											<option value="n">NO</option>
+										</select>
+									</div>
+									<div class="col-md-12">
+										<label class="labels">Type</label>
+										<input type="text" class="form-control" id="type" name="type"
+											[(ngModel)]="eMasterDetails.type" placeholder="enter Type">
+										<br />
+									</div>
+								</div>
+								<div class="mt-5 text-center" style="float: right;">
+									<a href="#profile" data-toggle="tab" class="btn btn-info float-end">Previous</a>
+									<span style="padding:10px"></span>
+									<a href="#employeeHRMS" data-toggle="tab" class="btn btn-info float-end">Next</a>
+									<span style="padding:10px"></span>
+									<button type="button" class="btn btn-default float-end"
+										data-dismiss="modal">Cancel</button>
+								</div>
+							</div>
+							
+									<div class="tab-pane" id="employeeHRMS">
+										<h6>EMPLOYEE HRMS DETAIL</h6>
+										<hr>
+										<div class="form-group">
+											<div class="row mt-3">
+												<div class="col-md-12">
+													<label class="labels">E-mail</label>
+													<input type="text" class="form-control" placeholder="Enter E-mail"
+														id="email" name="email" [(ngModel)]="eHrmsDetails.email">
+													<br />
+												</div>
+												<div class="col-md-12">
+													<label class="labels">Department</label>
+													<input type="text" class="form-control"
+														placeholder="Enter Department" id="department" name="department"
+														[(ngModel)]="eHrmsDetails.department">
+													<br />
+												</div>
+												<div class="col-md-12">
+													<label class="labels">Date Of Joining</label>
+													<input type="datetime-local" class="form-control" placeholder="Enter DOJ"
+														id="doj" name="doj" [(ngModel)]="eHrmsDetails.doj">
+													<br />
+												</div>
+											</div>
+										</div>
+										<div class="mt-5 text-center" style="float: right;">
+											
+											<a href="#employeemaster" data-toggle="tab" class="btn btn-info float-end">Previous</a>
+											<span style="padding:10px"></span>
+											<button style="background-color: #24aee4;" type="button"
+												class="btn btn-success float-end" (click)="eprofiledata()">SAVE</button>
+												<span style="padding:10px"></span>
+											<button type="button" class="btn btn-default float-end"
+												data-dismiss="modal">Cancel</button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<!-- <div class="mt-5 text-center">
+							<p style="float: right;">
+								<button style="background-color: #24aee4;" type="button" data-dismiss="modal"
+									class="btn btn-success float-end" (click)="eprofiledata()">SAVE</button>
+								<span style="margin-left: 20px;"></span>
+								<button type="button" class="btn btn-default float-end"
+									data-dismiss="modal">Cancel</button>
+							</p>
+						</div> -->
+					</div>
+				</div>
+			</div>

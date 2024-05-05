@@ -1,0 +1,31 @@
+<div  style="z-index: 999999;" >
+    <h3>Request time off</h3>
+    <br>
+    
+        <label for="From">From*:</label>
+        <input class="form-control" type="date" id="from" name="from" [(ngModel)]="from" (input)="dateDiff()">
+        <label for=" To">To*:</label>
+        <input class="form-control" type="date" id="to" name="To" [(ngModel)]="to" (input)="dateDiff()">
+        {{dtErr}}
+    <br>
+    
+    
+    <label for="Time of Type*">Type of Leave:</label><br>
+    <select [(ngModel)]="selectLeaveType"  class="form-control" name="timeOffType" id="timeOffType">
+      <option  selected disabled hidden>{{selectLeaveType}}</option>
+      <option *ngFor="let leaves of leaveType" value="{{leaves.value}}">{{leaves.display}}</option>
+    </select> <br>
+    <p> <span>Total Days*</span> <span> {{diffDays}}</span> <span *ngIf="diffDays>=0">Day</span></p>
+
+
+    
+    Note
+    <p>
+    <textarea name="message" id="message" rows="3" cols="" style="width: 100%;"  [(ngModel)]="message"></textarea>
+    </p>
+    <p style="float: right;">
+      <button style="background-color: #24aee4;" type="button" data-dismiss="modal" class="btn btn-success float-end" (click)="sendRequest()">Send Request</button>
+      <span style="margin-left: 20px;"></span>
+      <button type="button" class="btn btn-default float-end" data-dismiss="modal" (click)="clear()">Cancel</button>
+    </p>
+</div>

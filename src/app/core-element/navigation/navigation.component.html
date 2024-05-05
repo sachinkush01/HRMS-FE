@@ -1,0 +1,56 @@
+<!--header start-->
+<nav class="navbar navbar-default navbar-fixed-top">
+<header class="header clearfix">
+  <!--logo start-->
+  <div class="brand">
+
+      <a href="index.html" class="logo">
+          <img style="margin-left: 19px; margin-top: -5px;" src="/assets/images/logo.png" width="130" alt="logo">
+      </a>
+      <!-- <div class="sidebar-toggle-box">
+          <div class="fa fa-bars"></div>
+      </div> -->
+  </div>
+  <!--logo end-->
+
+  <div class="horizontal-menu navbar-collapse collapse">
+      <!--  notification start -->
+      <ul class="nav navbar-nav">
+
+          <li  *ngIf="this.authService.isLogin"><a class="btn" routerLink="user-dashboard" routerLinkActive="active">Home</a></li>
+          <li *ngIf="this.authService.isLogin"><a class="btn" routerLink="about" routerLinkActive="active">Our Company</a></li>
+          <li *ngIf="this.authService.isLogin"><a class="btn" mat-button routerLink="people" routerLinkActive="active">People</a></li>
+          <li *ngIf="this.authService.isLogin" ><a class="btn" mat-button routerLink="MyInfo" routerLinkActive="active">My Info</a></li>
+          <li *ngIf="this.authService.isLogin"><a class="btn" mat-button routerLink="hiring" routerLinkActive="active">Hiring</a></li> 
+          <li *ngIf="this.authService.isLogin"><a class="btn" mat-button routerLink="attendence-report" routerLinkActive="active">Report</a></li>
+         
+      </ul>
+      <!--  notification end -->
+  </div>
+  <div class="top-nav clearfix">
+      <!--search & user info start -->
+      <ul class="nav pull-right top-menu">
+          <li *ngIf="this.authService.isLogin" ><a class="btn" (click)="logout()"  >Logout</a></li>
+  
+        <!-- <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <img alt="" src="assets/images/avatar1_small.jpg">
+                  <span class="username">John Doe</span>
+                  <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu extended logout">
+                  <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                  <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+              </ul>
+          </li>
+           user login dropdown end 
+           <li>
+              <div class="toggle-right-box">
+                  <div class="fa fa-bars"></div>
+              </div>
+          </li> -->
+      </ul>
+      <!--search & user info end-->
+  </div>
+</header></nav>

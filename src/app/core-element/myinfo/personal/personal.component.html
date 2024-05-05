@@ -1,0 +1,72 @@
+
+<section id="main-content">
+    <section  class="wrapper" style="margin-top: 0px;">
+  
+
+      <head>
+          <title>My Info</title>
+
+      </head>
+     
+      <body>
+      
+      <h1 style="margin-left: 30px;;">Basic Information</h1>
+      <div  style= " margin-left: 30px; margin-top: 30px; width: 70%; ">
+          
+        
+ 
+  <table>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+    <tr>
+      <td style="background-color:#24aee4;color: white;"><b>Employe Name</b></td>
+      <td>{{myinfo!.name}}</td>
+      
+    </tr>
+    <tr>
+      <td style="background-color:#24aee4;color: white;"><b>Address</b></td>
+      <td>{{myinfo!.address}}</td>
+      
+    </tr>
+    <tr>
+      <td style="background-color: #24aee4;color: white;"><b>Email Id</b></td>
+      <td>{{myinfo!.emp_mail}}</td>
+      
+    </tr>
+    <tr>
+      <td style="background-color:#24aee4;color: white;"><b>Joining Date</b></td>
+      <td>{{myinfo!.joining_date}}</td>
+      
+    </tr>
+    <tr>
+      <td style="background-color: #24aee4;color: white;"><b>Mobile No.</b></td>
+      <td>{{myinfo!.phone_num}}</td>
+      
+   
+  </table>
+
+
+      </div>
+      
+    </body>
+    
+    
+    </section>
+  </section>
+  <router-outlet></router-outlet>
+<!-- <app-document></app-document> -->

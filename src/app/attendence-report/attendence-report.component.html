@@ -1,0 +1,75 @@
+
+<app-user-sidebar></app-user-sidebar>
+<section id="main-content">
+    <section class="wrapper">
+        
+        <div class="container">
+            <div class="table-title">
+              <div class="row">
+        <div class="container">
+         <h2>Attendance Record</h2>
+         </div>
+              </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+               
+        <table>
+            <tr style=>
+                <th style="padding: 10px; color: white; background-color:#1e97c6;"> From <span style="margin-left: 20px;"></span><input type="date" [(ngModel)]="from">
+                    <span style="margin-left: 130px;"></span>
+                    <span> To <span style="margin-left: 10px;"></span><input type="date" [(ngModel)]="to"></span>
+                    <p style="float: right;">
+                      <span *ngIf="(data.length > 0) || (displayTable!=null && displayTable == false && data.length==0)">
+                        <button style="background-color: #24aee4;" type="button" class="btn btn-success float-end" (click)="reset()">Reset</button>
+                        <span style="margin-left: 20px;"></span>
+                      </span>
+                        <button style="background-color: #24aee4;" type="button" class="btn btn-success float-end" (click)="getData()">Search</button>
+                        <span style="margin-left: 20px;"></span>
+                    </p> 
+                </th>
+            </tr> 
+            </table>
+        <div *ngIf="data.length > 0">
+          <table class="table table-bordered table-striped" >
+                <thead style="background-color: #24aee4">
+                  <tr style="text-align: center; color: white;font-weight: bold;font-size: larger;">
+                    <th style="border: 0px; text-align: right;">
+                     <span> {{empName}} :</span>
+                     </th>
+                     <th colspan="2" style="border: 0px;text-align: left;">
+                      <span>
+                        From: {{from}} - To: {{to}}
+                      </span>
+                     </th>
+                     <th  style="border: 0px;text-align: center;">
+                      <button style="float: right; background-color: #24aee4;" type="button" class="btn btn-success float-end"  (click)="exportAsXLSX()">Export to Excel</button>
+                    </th>
+                  </tr>
+                  <tr style="color: white; text-align: center">
+                    <th style="text-align: center">Date</th>
+                    <th style="text-align: center">In Time</th>
+                    <th style="text-align: center">Date</th>
+                    <th style="text-align: center">Out Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let punchDetails of data">
+                   <!-- <td>{{punchDetails.empName}}</td>-->
+                    <td>{{punchDetails.punchIn | date }}</td>
+                    <td>{{punchDetails.punchIn | date:'shortTime' }}</td>
+                    <td>{{punchDetails.punchOut | date }}</td>
+                    <td>{{punchDetails.punchOut | date:'shortTime' }}</td>
+                  </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="displayTable!=null && displayTable == false && data.length==0" class="table table-bordered table-striped" 
+        style="background-color:#24aee4; margin-top: 4%;padding: 2%;color: white;font-weight: bold;
+        width: 80%; align-content: center; text-align: center;">No Records Found</div>
+    </div>

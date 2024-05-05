@@ -1,0 +1,93 @@
+<table>
+    <thead>
+        <tr>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+
+            <td>
+                <form>
+                    <label style="font-size: 12px; display: block;" >Punch-in</label>
+                    <small *ngIf="punchInClass!=null && punchInClass.punchIn"
+                        style="border: 1px; background: white; padding: 5px 8px; color: black"> {{punchInClass.punchIn
+                        | date:'shortTime' }} </small>
+                    <small *ngIf="punchInClass == null || punchInClass.punchIn == null" style="border: 1px; background: white; padding: 5px 17px; color: black"  >--:--</small>
+                </form>
+            </td>
+            <td>
+                <form>
+                    <label style="font-size: 12px; display: block;">Punch-out</label>
+                    <small *ngIf="punchInClass!=null && punchInClass.punchOut"
+                    style="border: 1px; background: white; padding: 5px 8px; color: black"> {{punchInClass!.punchOut
+                    | date:'shortTime' }} </small>
+                <small *ngIf="punchInClass == null || punchInClass.punchOut == null" style="border: 1px; background: white; padding: 5px 17px; color: black"  >--:--</small>
+            
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 8px;">
+                <button *ngIf="punchInClass ==null || punchInClass.punchIn ==null" style="margin-top: 20px;" type="button" (click)="punchINandOut(true)"
+                    class="btn btn-success btn-block">Punch-in</button>
+                <button [disabled] = "punchOutTime" *ngIf="punchInClass!=null && punchInClass.punchOut ==null" style="margin-top: 20px;" type="button" (click)="punchINandOut(false)"
+                    class="btn btn-success btn-block">  Punch-out</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td style="font-size: 12px;">Leaves</td>
+                <td style="font-size: 12px;">Left</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{totalLeaves}}</td>
+                <td>{{leavesLeft}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding: 8px;">
+
+                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-backdrop="false"
+                        data-target="#myModal">Request Time Off</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <p>Who's Out</p>
+    <p style="font-size: 11px; margin-top: 10px;text-align: start">Today (2)</p>
+    <table style="text-align: start">
+        <img style="margin:5px 10px 5px 5px " src="./assets/images/avatar-mini-2.jpg">
+        <img src="./assets/images/avatar-mini-4.jpg">
+        <p style="font-size: 10px ;text-align: start">Yesterday (2)</p>
+        <img style="margin:5px 10px 5px 5px " src="./assets/images/avatar-mini.jpg">
+        <img src="./assets/images/avatar-mini-3.jpg">
+
+    </table>
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-header">
+          <div class="modal-header"></div>
+          <div class="modal-body">
+            <leave-modal></leave-modal>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+</div>

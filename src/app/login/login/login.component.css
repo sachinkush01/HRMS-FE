@@ -1,0 +1,10 @@
+.form-signin h2.form-signin-heading{
+     background : #24aee4 ;
+     border-bottom: 8px solid #0f9ed7;
+}
+.form-signin .btn-login {
+    background : #24aee4 ;
+}
+.login-body{
+        background-image :url("src/assets/images/success-banner.jpg");   
+}
